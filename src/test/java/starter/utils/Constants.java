@@ -1,7 +1,5 @@
 package starter.utils;
 
-import org.jruby.util.Dir;
-
 public class Constants {
     public static final String BASE_URL = "https://reqres.in";
     public static String DIR = System.getProperty("user.dir");
