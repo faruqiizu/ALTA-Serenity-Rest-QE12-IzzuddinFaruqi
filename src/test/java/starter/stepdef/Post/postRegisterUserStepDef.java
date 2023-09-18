@@ -37,6 +37,19 @@ public class postRegisterUserStepDef {
 
     //negative case
     @Given("Register user with email only {string}")
-    public void registerUserWithEmailOnly(String arg0) {
+    public void registerUserWithEmailOnly(String jsonFile) {
+        File json = new File(Constants.REQ_BODY+jsonFile);
+        postregisteruserAPI.postRegisterUser(json);
     }
+
+    //negative case
+    @Given("Register user with password only {string}")
+    public void registerUserWithPasswordOnly(String jsonFile) {
+        File json = new File(Constants.REQ_BODY+jsonFile);
+        postregisteruserAPI.postRegisterUser(json);
+    }
+//    @When("Send request post register user")
+//    public void sendRequestPostRegisterUserPass() {
+//        SerenityRest.when().post(PostRegisterUserAPI.POST_REGISTER_USER);
+//    }
 }

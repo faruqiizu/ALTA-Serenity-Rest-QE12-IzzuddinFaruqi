@@ -14,6 +14,14 @@ Feature: Register user
   Scenario: Post register user with email only
     Given Register user with email only "PostRegisterNewUserEmailOnly.json"
     When Send request post register user
-    Then Status code should be 400
+    Then Status code should be bad request 400
     And Responses body error was "Missing password"
     And Validate post register JSON schema "PostRegisterNewUserEmailOnlySchema.json"
+
+  @Tugas @NegativeCase
+  Scenario: Post register user with password only
+    Given Register user with password only "PostRegisterNewUserPasswordOnly.json"
+    When Send request post register user
+    Then Status code should be bad request 400
+    And Responses body error was "Missing email or username"
+    And Validate post register JSON schema "PostRegisterNewUserPasswordOnlySchema.json"

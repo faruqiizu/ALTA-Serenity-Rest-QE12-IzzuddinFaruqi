@@ -33,4 +33,11 @@ public class putUpdateUserStepDef {
         SerenityRest.and().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
+    //negative case
+    @Given("Update user with invalid json {string} and user id {}")
+    public void updateUserWithInvalidJsonAndUserId(String jsonFile, int id) {
+        File json = new File(Constants.REQ_BODY+jsonFile);
+        putupdateuserAPI.putUpdateUser(json, id);
+    }
+
 }

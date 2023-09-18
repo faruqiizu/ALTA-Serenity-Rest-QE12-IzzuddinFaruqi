@@ -11,7 +11,7 @@ Feature: delete user
 
 @Tugas @NegativeCase
   Scenario Outline: Delete a user with invalid user id
-    Given Delete a user with invalid user id <id>
+    Given Delete a user with invalid user id "<id>"
     When Send request delete user
     Then Status code should be 400
     Examples:
